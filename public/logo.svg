@@ -1,0 +1,13 @@
+<svg width="640" height="320" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Tu Mejor Sueño</title>
+  <desc id="desc">Logotipo con texto Tu Mejor Sueño en color turquesa y una luna amarilla</desc>
+  <defs>
+    <style>
+      .text { font-family: 'Manrope', 'Segoe UI', sans-serif; font-weight: 700; fill: #2fb4ad; letter-spacing: 1px; }
+      .moon { fill: none; stroke: #f5c13b; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <text class="text" x="65" y="150" font-size="92">TU MEJOR</text>
+  <text class="text" x="140" y="240" font-size="92">SUEÑO</text>
+  <path class="moon" d="M430 106c-18 26-18 60 0 86 25 5 48-6 61-26-21 11-44 3-54-20-8-18-3-39 12-52-7 4-14 9-19 12z" />
+</svg>

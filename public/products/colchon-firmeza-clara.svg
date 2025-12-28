@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="firmeza-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f8f0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e0f0e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8e0c8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f8f5"/>
+  
+  <!-- Mattress main body -->
+  <rect x="100" y="245" width="600" height="190" rx="20" fill="url(#firmeza-grad)" filter="url(#shadow)"/>
+  
+  <!-- Firm structure grid -->
+  <rect x="150" y="270" width="80" height="140" rx="5" fill="#b8d8b8" opacity="0.3"/>
+  <rect x="250" y="270" width="80" height="140" rx="5" fill="#b8d8b8" opacity="0.3"/>
+  <rect x="350" y="270" width="80" height="140" rx="5" fill="#b8d8b8" opacity="0.3"/>
+  <rect x="450" y="270" width="80" height="140" rx="5" fill="#b8d8b8" opacity="0.3"/>
+  <rect x="550" y="270" width="80" height="140" rx="5" fill="#b8d8b8" opacity="0.3"/>
+  
+  <!-- Support lines -->
+  <line x1="110" y1="310" x2="690" y2="310" stroke="#a0c8a0" stroke-width="3" opacity="0.5"/>
+  <line x1="110" y1="350" x2="690" y2="350" stroke="#a0c8a0" stroke-width="3" opacity="0.5"/>
+  <line x1="110" y1="390" x2="690" y2="390" stroke="#a0c8a0" stroke-width="3" opacity="0.5"/>
+  
+  <!-- Side edge -->
+  <rect x="100" y="435" width="600" height="28" rx="5" fill="#a8c8a8"/>
+  <line x1="100" y1="448" x2="700" y2="448" stroke="#90b890" stroke-width="2"/>
+  
+  <!-- Decorative firm indicators -->
+  <rect x="650" y="180" width="40" height="8" rx="4" fill="#88b888" opacity="0.6"/>
+  <rect x="650" y="195" width="40" height="8" rx="4" fill="#88b888" opacity="0.6"/>
+  <rect x="650" y="210" width="40" height="8" rx="4" fill="#88b888" opacity="0.6"/>
+  
+  <rect x="120" y="480" width="35" height="8" rx="4" fill="#88b888" opacity="0.6"/>
+  <rect x="120" y="495" width="35" height="8" rx="4" fill="#88b888" opacity="0.6"/>
+  
+  <!-- Label -->
+  <rect x="300" y="310" width="200" height="65" rx="8" fill="white" opacity="0.95"/>
+  <text x="400" y="335" font-family="Arial, sans-serif" font-size="14" fill="#2d5f2d" text-anchor="middle" font-weight="bold">FIRMEZA</text>
+  <text x="400" y="355" font-family="Arial, sans-serif" font-size="12" fill="#4a7c4a" text-anchor="middle">CLARA</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="canape-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d5942;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f6f4"/>
+  
+  <!-- Base structure -->
+  <rect x="120" y="350" width="560" height="80" rx="8" fill="url(#canape-grad)" filter="url(#shadow)"/>
+  
+  <!-- Wood texture lines -->
+  <line x1="130" y1="360" x2="670" y2="360" stroke="#5d4935" stroke-width="1" opacity="0.3"/>
+  <line x1="130" y1="380" x2="670" y2="380" stroke="#5d4935" stroke-width="1" opacity="0.3"/>
+  <line x1="130" y1="400" x2="670" y2="400" stroke="#5d4935" stroke-width="1" opacity="0.3"/>
+  <line x1="130" y1="420" x2="670" y2="420" stroke="#5d4935" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Storage compartment indicators -->
+  <rect x="200" y="365" width="150" height="50" rx="4" fill="#5d4935" opacity="0.2"/>
+  <rect x="370" y="365" width="150" height="50" rx="4" fill="#5d4935" opacity="0.2"/>
+  <rect x="540" y="365" width="80" height="50" rx="4" fill="#5d4935" opacity="0.2"/>
+  
+  <!-- Mattress on top -->
+  <rect x="100" y="240" width="600" height="120" rx="15" fill="#e8e0d8" filter="url(#shadow)"/>
+  
+  <!-- Mattress quilting -->
+  <line x1="200" y1="250" x2="200" y2="350" stroke="#d0c8c0" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  <line x1="300" y1="250" x2="300" y2="350" stroke="#d0c8c0" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  <line x1="400" y1="250" x2="400" y2="350" stroke="#d0c8c0" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  <line x1="500" y1="250" x2="500" y2="350" stroke="#d0c8c0" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  <line x1="600" y1="250" x2="600" y2="350" stroke="#d0c8c0" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  
+  <!-- Legs -->
+  <rect x="140" y="430" width="15" height="40" rx="3" fill="#5d4935"/>
+  <rect x="250" y="430" width="15" height="40" rx="3" fill="#5d4935"/>
+  <rect x="535" y="430" width="15" height="40" rx="3" fill="#5d4935"/>
+  <rect x="645" y="430" width="15" height="40" rx="3" fill="#5d4935"/>
+  
+  <!-- Hinges/handles -->
+  <rect x="380" y="360" width="40" height="8" rx="4" fill="#4a3828"/>
+  
+  <!-- Label -->
+  <rect x="310" y="280" width="180" height="60" rx="8" fill="white" opacity="0.95"/>
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="14" fill="#5d4935" text-anchor="middle" font-weight="bold">CANAPÉ LISO</text>
+  <text x="400" y="325" font-family="Arial, sans-serif" font-size="12" fill="#7d6955" text-anchor="middle">COMPACTO</text>
+</svg>

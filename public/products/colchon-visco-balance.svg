@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="visco-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f0f8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d0e0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8d0e8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Mattress main body -->
+  <rect x="100" y="240" width="600" height="200" rx="20" fill="url(#visco-grad)" filter="url(#shadow)"/>
+  
+  <!-- Memory foam waves pattern -->
+  <path d="M 120 280 Q 160 260, 200 280 T 280 280 T 360 280 T 440 280 T 520 280 T 600 280 T 680 280" 
+        stroke="#a8c0d8" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 120 320 Q 160 300, 200 320 T 280 320 T 360 320 T 440 320 T 520 320 T 600 320 T 680 320" 
+        stroke="#a8c0d8" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 120 360 Q 160 340, 200 360 T 280 360 T 360 360 T 440 360 T 520 360 T 600 360 T 680 360" 
+        stroke="#a8c0d8" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 120 400 Q 160 380, 200 400 T 280 400 T 360 400 T 440 400 T 520 400 T 600 400 T 680 400" 
+        stroke="#a8c0d8" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Side edge with layers -->
+  <rect x="100" y="440" width="600" height="30" rx="5" fill="#a0b8d0"/>
+  <rect x="100" y="440" width="600" height="10" fill="#8ca8c0" opacity="0.8"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="180" cy="160" r="8" fill="#94b8d8" opacity="0.5"/>
+  <circle cx="220" cy="180" r="12" fill="#94b8d8" opacity="0.5"/>
+  <circle cx="260" cy="155" r="10" fill="#94b8d8" opacity="0.5"/>
+  
+  <circle cx="600" cy="500" r="10" fill="#94b8d8" opacity="0.5"/>
+  <circle cx="640" cy="520" r="8" fill="#94b8d8" opacity="0.5"/>
+  
+  <!-- Label -->
+  <rect x="310" y="310" width="180" height="60" rx="8" fill="white" opacity="0.95"/>
+  <text x="400" y="335" font-family="Arial, sans-serif" font-size="14" fill="#475569" text-anchor="middle" font-weight="bold">VISCO</text>
+  <text x="400" y="355" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">BALANCE</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="orizo-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a4a4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f4f4f6"/>
+  
+  <!-- Base structure - robust -->
+  <rect x="110" y="340" width="580" height="100" rx="8" fill="url(#orizo-grad)" filter="url(#shadow)"/>
+  
+  <!-- Metal reinforcement lines -->
+  <rect x="120" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  <rect x="220" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  <rect x="320" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  <rect x="420" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  <rect x="520" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  <rect x="620" y="350" width="8" height="80" rx="2" fill="#5a5a5a"/>
+  
+  <!-- Horizontal reinforcement -->
+  <rect x="120" y="380" width="560" height="6" rx="2" fill="#5a5a5a" opacity="0.8"/>
+  <rect x="120" y="410" width="560" height="6" rx="2" fill="#5a5a5a" opacity="0.8"/>
+  
+  <!-- Storage compartments -->
+  <rect x="180" y="358" width="120" height="65" rx="4" fill="#1a1a1a" opacity="0.3"/>
+  <rect x="340" y="358" width="120" height="65" rx="4" fill="#1a1a1a" opacity="0.3"/>
+  <rect x="500" y="358" width="120" height="65" rx="4" fill="#1a1a1a" opacity="0.3"/>
+  
+  <!-- Mattress on top -->
+  <rect x="90" y="220" width="620" height="130" rx="15" fill="#f0f0f0" filter="url(#shadow)"/>
+  
+  <!-- Mattress pattern -->
+  <rect x="110" y="240" width="580" height="90" rx="10" fill="#e8e8e8"/>
+  <line x1="200" y1="240" x2="200" y2="330" stroke="#d0d0d0" stroke-width="2" opacity="0.5"/>
+  <line x1="300" y1="240" x2="300" y2="330" stroke="#d0d0d0" stroke-width="2" opacity="0.5"/>
+  <line x1="400" y1="240" x2="400" y2="330" stroke="#d0d0d0" stroke-width="2" opacity="0.5"/>
+  <line x1="500" y1="240" x2="500" y2="330" stroke="#d0d0d0" stroke-width="2" opacity="0.5"/>
+  <line x1="600" y1="240" x2="600" y2="330" stroke="#d0d0d0" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Heavy duty legs -->
+  <rect x="130" y="440" width="20" height="50" rx="4" fill="#2d2d2d"/>
+  <rect x="240" y="440" width="20" height="50" rx="4" fill="#2d2d2d"/>
+  <rect x="540" y="440" width="20" height="50" rx="4" fill="#2d2d2d"/>
+  <rect x="650" y="440" width="20" height="50" rx="4" fill="#2d2d2d"/>
+  
+  <!-- Metal handles -->
+  <rect x="350" y="355" width="60" height="10" rx="5" fill="#6a6a6a"/>
+  <rect x="390" y="355" width="20" height="10" rx="5" fill="#3a3a3a"/>
+  
+  <!-- Reinforcement indicators -->
+  <circle cx="680" cy="200" r="6" fill="#4a4a4a" opacity="0.6"/>
+  <circle cx="700" cy="210" r="8" fill="#4a4a4a" opacity="0.6"/>
+  <circle cx="720" cy="195" r="7" fill="#4a4a4a" opacity="0.6"/>
+  
+  <!-- Label -->
+  <rect x="300" y="265" width="200" height="65" rx="8" fill="white" opacity="0.95"/>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="14" fill="#2d2d2d" text-anchor="middle" font-weight="bold">CANAPÉ ORIZO</text>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="12" fill="#4a4a4a" text-anchor="middle">ROBUSTO</text>
+</svg>
