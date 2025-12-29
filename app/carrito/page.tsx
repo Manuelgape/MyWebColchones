@@ -8,7 +8,6 @@ import { useMemo, useState } from "react";
 import { useCart } from "@/components/cart-context";
 import { formatPrice } from "@/lib/format";
 import { isAllowedPostalCode } from "@/lib/postal-codes";
-import { createOrder } from "@/lib/api";
 import { submitRedsysPayment } from "@/lib/redsys";
 
 export default function CarritoPage() {
@@ -56,33 +55,52 @@ export default function CarritoPage() {
     try {
       const province = city.toLowerCase().includes("zamora") ? "Zamora" : "Salamanca";
       
-      const response = await createOrder({
-        customer: {
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          address: address.trim(),
-          postal_code: trimmedPostal,
-          city: city.trim(),
-          province,
+      // Call new Redsys create endpoint
+      const response = await fetch("/api/redsys/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        items: items.map((item) => ({
-          product_slug: item.productSlug,
-          product_name: item.name,
-          variant_id: item.id,
-          variant_name: item.variantName,
-          size: item.size,
-          quantity: item.quantity,
-          unit_price: item.price,
-        })),
-        notes: notes.trim() || undefined,
+        body: JSON.stringify({
+          customer: {
+            name: name.trim(),
+            email: email.trim(),
+            phone: phone.trim(),
+            address: address.trim(),
+            postal_code: trimmedPostal,
+            city: city.trim(),
+            province,
+          },
+          items: items.map((item) => ({
+            product_slug: item.productSlug,
+            product_name: item.name,
+            variant_id: item.id,
+            variant_name: item.variantName,
+            size: item.size,
+            quantity: item.quantity,
+            unit_price: item.price,
+          })),
+          notes: notes.trim() || undefined,
+        }),
       });
 
-      // Clear cart
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Error al crear el pedido");
+      }
+
+      const data = await response.json();
+
+      // Clear cart before redirect
       clear();
       
       // Redirect to Redsys payment gateway
-      submitRedsysPayment(response.payment_form);
+      submitRedsysPayment({
+        Ds_SignatureVersion: data.Ds_SignatureVersion,
+        Ds_MerchantParameters: data.Ds_MerchantParameters,
+        Ds_Signature: data.Ds_Signature,
+        action_url: data.action_url,
+      });
       
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error al procesar el pedido");
