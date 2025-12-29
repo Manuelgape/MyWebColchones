@@ -7,7 +7,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Tu Mejor Sueño"
             width={170}
             height={72}

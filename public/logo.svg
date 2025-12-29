@@ -1,13 +1,21 @@
-<svg width="640" height="320" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Tu Mejor Sueño</title>
-  <desc id="desc">Logotipo con texto Tu Mejor Sueño en color turquesa y una luna amarilla</desc>
+<svg width="850" height="520" viewBox="0 0 850 520" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      .text { font-family: 'Manrope', 'Segoe UI', sans-serif; font-weight: 700; fill: #2fb4ad; letter-spacing: 1px; }
-      .moon { fill: none; stroke: #f5c13b; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; }
+      .title { font-family: 'Arial', 'Helvetica', sans-serif; font-weight: bold; fill: #4db8b3; letter-spacing: 8px; }
     </style>
   </defs>
-  <text class="text" x="65" y="150" font-size="92">TU MEJOR</text>
-  <text class="text" x="140" y="240" font-size="92">SUEÑO</text>
-  <path class="moon" d="M430 106c-18 26-18 60 0 86 25 5 48-6 61-26-21 11-44 3-54-20-8-18-3-39 12-52-7 4-14 9-19 12z" />
+  
+  <!-- Primera línea: TU MEJOR -->
+  <text class="title" x="30" y="180" font-size="145">TU MEJOR</text>
+  
+  <!-- Luna amarilla en forma de media luna (donde iría la O) -->
+  <g transform="translate(610, 150)">
+    <path d="M 0 -35 Q 25 -35 25 0 Q 25 35 0 35 Q 20 0 0 -35 Z" fill="#f5c13b"/>
+  </g>
+  
+  <!-- R después de la luna -->
+  <text class="title" x="660" y="180" font-size="145">R</text>
+  
+  <!-- Segunda línea: SUEÑO -->
+  <text class="title" x="80" y="360" font-size="145">SUEÑO</text>
 </svg>

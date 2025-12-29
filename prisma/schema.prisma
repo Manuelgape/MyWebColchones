@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Order {
+  id                String    @id @default(cuid())
+  status            String    @default("PENDING") // PENDING|PAID|FAILED|CANCELLED|EXPIRED
+  amountCents       Int       // Amount in cents (e.g., 12500 = 125.00 EUR)
+  currency          String    @default("EUR")
+  
+  // Customer info
+  customerName      String
+  customerEmail     String
+  customerPhone     String
+  customerAddress   String
+  customerCity      String
+  customerProvince  String
+  postalCode        String
+  
+  // Order details
+  items             OrderItem[]
+  notes             String?
+  
+  // Timestamps
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  // Relations
+  payments          Payment[]
+  
+  @@index([status])
+  @@index([postalCode])
+  @@index([customerEmail])
+}
+
+model OrderItem {
+  id                String    @id @default(cuid())
+  orderId           String
+  order             Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  productSlug       String
+  productName       String
+  variantId         String
+  variantName       String
+  size              String
+  quantity          Int
+  unitPriceCents    Int       // Price in cents
+  
+  @@unique([orderId, variantId])
+  @@index([orderId])
+}
+
+model Payment {
+  id                String    @id @default(cuid())
+  orderId           String
+  order             Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  provider          String    @default("redsys")
+  responseCode      String?   // DS_RESPONSE
+  authCode          String?   // DS_AUTHORIZATIONCODE
+  orderId3DS        String?   // DS_ORDER from response
+  
+  // Raw payload for debugging and idempotency
+  rawNotification   String?   // JSON stringified full payload
+  
+  // Timestamps
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@unique([orderId, provider])
+  @@index([orderId])
+  @@index([responseCode])
+}
+
+model AuditLog {
+  id                String    @id @default(cuid())
+  event             String    // e.g., "redsys_notify_received", "order_created", etc.
+  orderId           String?
+  payload           String?   // JSON stringified for logging
+  error             String?
+  
+  createdAt         DateTime  @default(now())
+  
+  @@index([event])
+  @@index([orderId])
+  @@index([createdAt])
+}
