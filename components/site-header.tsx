@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
+import { useCart } from "./cart-context";
+
 export default function SiteHeader() {
+  const { items } = useCart();
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="border-b border-slate-200/60 bg-white/80">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
@@ -27,9 +34,14 @@ export default function SiteHeader() {
           </Link>
           <Link
             href="/carrito"
-            className="rounded-full border border-slate-300 px-4 py-2 text-xs uppercase tracking-[0.2em] text-slate-700 transition hover:border-slate-400"
+            className="relative rounded-full border border-slate-300 px-4 py-2 text-xs uppercase tracking-[0.2em] text-slate-700 transition hover:border-slate-400"
           >
             Carrito
+            {itemCount > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-[10px] font-bold text-white">
+                {itemCount}
+              </span>
+            )}
           </Link>
         </nav>
       </div>

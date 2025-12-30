@@ -1,5 +1,4 @@
 import crypto from "crypto";
-import base64url from "base64-url";
 
 /**
  * Redsys utility functions for payment processing
@@ -80,11 +79,17 @@ export function createPaymentRequest(
   okUrl: string,
   koUrl: string
 ): PaymentRequest {
+  console.log("💳 [Redsys] Creating payment request...");
+  console.log("💳 [Redsys] Order ID:", orderId);
+  console.log("💳 [Redsys] Amount EUR:", amountEur);
+  
   // Amount in cents (Redsys requires integer)
   const amountCents = Math.round(amountEur * 100);
+  console.log("💳 [Redsys] Amount in cents:", amountCents);
 
   // Ensure order ID is max 12 characters
   const paddedOrderId = orderId.slice(-12).padStart(12, "0");
+  console.log("💳 [Redsys] Padded order ID:", paddedOrderId);
 
   // Create merchant parameters
   const params: MerchantParameters = {
@@ -107,23 +112,31 @@ export function createPaymentRequest(
     });
   }
 
+  console.log("💳 [Redsys] Merchant parameters:", JSON.stringify(params, null, 2));
+
   // Encode parameters to base64
   const paramsJson = JSON.stringify(params);
   const paramsB64 = Buffer.from(paramsJson).toString("base64");
+  console.log("💳 [Redsys] Parameters base64 length:", paramsB64.length);
 
   // Create signature
+  console.log("💳 [Redsys] Creating signature...");
   const signature = createMerchantSignature(
     paddedOrderId,
     paramsB64,
     config.secretKey
   );
+  console.log("💳 [Redsys] Signature created:", signature);
 
-  return {
+  const result = {
     Ds_SignatureVersion: "HMAC_SHA256_V1",
     Ds_MerchantParameters: paramsB64,
     Ds_Signature: signature,
     action_url: getRedsysUrl(config.environment),
   };
+  
+  console.log("✅ [Redsys] Payment request created successfully");
+  return result;
 }
 
 export function verifyRedsysSignature(

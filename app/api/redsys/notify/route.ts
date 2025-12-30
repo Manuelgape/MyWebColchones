@@ -6,6 +6,9 @@ import {
   isPaymentSuccessful,
 } from "@/lib/redsys-utils";
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/redsys/notify
  * 
